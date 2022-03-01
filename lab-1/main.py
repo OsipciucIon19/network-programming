@@ -22,10 +22,6 @@ option = None
 host = ""
 port = 0
 
-import os
-
-print(os.path.join(os.getcwd(), "images"))
-
 if __name__ == '__main__':
     print("1) me.utm.md : 80")
     print("2) utm.md    : 443")
@@ -33,5 +29,4 @@ if __name__ == '__main__':
 
     choose_option(option)
     list_of_links = OpenThroughSocket(host, int(port)).get_links()
-    print(list_of_links)
     DownloadImages(list_of_links, host, int(port)).start_multi_threading()
