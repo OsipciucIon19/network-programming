@@ -80,7 +80,7 @@ octeti.
   
 * Ce este un fir de executie?
     - Un fir de executie este o succesiune secventiala de instructiuni care se executa in cadrul unui proces.
-    - ![img_3.png](img_3.png)
+    - ![img.png](img.png)
   
 * Diferenta dintre TCP si UDP
     - TCP este un protocol orientat pe conexiune, in timp ce UDP este un protocol fara conexiune. O diferenta importanta
