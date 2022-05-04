@@ -6,7 +6,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
-import email.header
 
 
 class MailOperations:
@@ -63,7 +62,7 @@ class MailOperations:
         # connect to the server and go to its inbox
         mail = imaplib.IMAP4_SSL(SERVER)
         mail.login(EMAIL, PASSWORD)
-        # we choose the inbox but you can select others
+        # we choose the inbox
         mail.select('inbox')
 
         # we'll search using the ALL criteria to retrieve
