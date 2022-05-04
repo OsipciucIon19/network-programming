@@ -95,3 +95,6 @@ socket. Cine doreste poate sa faca prin socket ca si in primul laborator.
   pentru a asigura securizarea paginilor de utilizator si pentru checkouts online. Acesta cripteaza datele pentru a
   evita accesul unei terte parti la datele de transmitie. Pe de alta parte, TLS este un succesor al SSL. Ofera
   confidentialitate, integritate si protectie a datelor.
+
+
+RFC - request for comments 
