@@ -22,7 +22,7 @@ def handle_client(client):
     while True:
         msg = client.recv(BUFSIZ)
         if msg != bytes("{quit}", "utf8"):
-            broadcast(msg, name+": ")
+            broadcast(msg, name + ": ")
         else:
             client.send(bytes("{quit}", "utf8"))
             client.close()
@@ -48,10 +48,6 @@ SERVER = socket(AF_INET, SOCK_STREAM)
 SERVER.bind(ADDR)
 
 if __name__ == "__main__":
-    chatterNr = open("nr", "w")
-    chatterNr.write(str(1))
-    chatterNr.close()
-
     SERVER.listen(5)
     print("Waiting for connection...")
     ACCEPT_THREAD = Thread(target=accept_incoming_connections)

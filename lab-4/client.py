@@ -2,12 +2,6 @@ from socket import AF_INET, socket, SOCK_STREAM
 from threading import Thread
 import tkinter
 
-f = open("nr", "r")
-nr = int(f.read())
-f = open("nr", "w")
-f.write(str(nr + 1))
-f.close()
-
 
 def receive():
     while True:
@@ -20,7 +14,7 @@ def receive():
 
 def send(event=None):
     msg = my_msg.get()
-    my_msg.set("")  # Clears input field.
+    my_msg.set("")
     client_socket.send(bytes(msg, "utf8"))
     if msg == "{quit}":
         client_socket.close()
@@ -33,7 +27,7 @@ def on_closing(event=None):
 
 
 top = tkinter.Tk()
-top.title("Chatter " + str(nr))
+top.title("Chatter ")
 
 messages_frame = tkinter.Frame(top)
 my_msg = tkinter.StringVar()
@@ -53,7 +47,7 @@ send_button.pack()
 top.protocol("WM_DELETE_WINDOW", on_closing)
 
 HOST = "127.0.0.1"
-PORT = 10000
+PORT = 33000
 
 BUFSIZ = 1024
 ADDR = (HOST, PORT)
