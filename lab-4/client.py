@@ -26,34 +26,35 @@ def on_closing(event=None):
     send()
 
 
-top = tkinter.Tk()
-top.title("Chatter ")
+if __name__ == "__main__":
+    top = tkinter.Tk()
+    top.title("Chatter ")
 
-messages_frame = tkinter.Frame(top)
-my_msg = tkinter.StringVar()
-scrollbar = tkinter.Scrollbar(messages_frame)
-msg_list = tkinter.Listbox(messages_frame, height=15, width=50, yscrollcommand=scrollbar.set)
-scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
-msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
-msg_list.pack()
-messages_frame.pack()
+    messages_frame = tkinter.Frame(top)
+    my_msg = tkinter.StringVar()
+    scrollbar = tkinter.Scrollbar(messages_frame)
+    msg_list = tkinter.Listbox(messages_frame, height=15, width=50, yscrollcommand=scrollbar.set)
+    scrollbar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
+    msg_list.pack(side=tkinter.LEFT, fill=tkinter.BOTH)
+    msg_list.pack()
+    messages_frame.pack()
 
-entry_field = tkinter.Entry(top, textvariable=my_msg)
-entry_field.bind("<Return>", send)
-entry_field.pack()
-send_button = tkinter.Button(top, text="Send", command=send)
-send_button.pack()
+    entry_field = tkinter.Entry(top, textvariable=my_msg)
+    entry_field.bind("<Return>", send)
+    entry_field.pack()
+    send_button = tkinter.Button(top, text="Send", command=send)
+    send_button.pack()
 
-top.protocol("WM_DELETE_WINDOW", on_closing)
+    top.protocol("WM_DELETE_WINDOW", on_closing)
 
-HOST = "127.0.0.1"
-PORT = 33000
+    HOST = "127.0.0.1"
+    PORT = 33000
 
-BUFSIZ = 1024
-ADDR = (HOST, PORT)
-client_socket = socket(AF_INET, SOCK_STREAM)
-client_socket.connect(ADDR)
+    BUFSIZ = 1024
+    ADDR = (HOST, PORT)
+    client_socket = socket(AF_INET, SOCK_STREAM)
+    client_socket.connect(ADDR)
 
-receive_thread = Thread(target=receive)
-receive_thread.start()
-tkinter.mainloop()
+    receive_thread = Thread(target=receive)
+    receive_thread.start()
+    tkinter.mainloop()

@@ -1,4 +1,4 @@
-# Laboratorul 2. Programarea in retea
+ # Laboratorul 2. Programarea in retea
 
 ## Tema: SMTP / POP3 / IMAP
 

@@ -36,8 +36,11 @@ def login():
         csrf = tree.xpath('//input[@name="csrf_token"]/@value')[0]
         session.get(url)
         form_data = dict(csrf_token=csrf, username=email, password=password)
-        headers = {'referer': url, 'content-type': 'application/x-www-form-urlencoded',
-                   'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
+        headers = {
+            'referer': url,
+            'content-type': 'application/x-www-form-urlencoded',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+        }
         response = session.post(url, data=form_data, headers=headers)
         print(response.content)
         print('Status code:', response.status_code)
