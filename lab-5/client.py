@@ -3,7 +3,6 @@ import cv2
 import numpy as np
 import sys
 import time
-import argparse
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 host = 'OSIPCIUC'

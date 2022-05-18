@@ -1,14 +1,11 @@
 import socket
-import argparse
-
 import video_grabber
 
 jpeg_quality = 50
 host = socket.gethostname()
 port = 10080
-encoder = 'cv2'
 
-grabber = video_grabber.VideoGrabber(jpeg_quality, encoder)
+grabber = video_grabber.VideoGrabber(jpeg_quality)
 grabber.start()
 get_message = lambda: grabber.get_buffer()
 
