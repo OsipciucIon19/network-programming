@@ -6,7 +6,7 @@ import time
 import argparse
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-host = '127.0.0.1'
+host = 'OSIPCIUC'
 port = 10080
 server_address = (host, port)
 
@@ -24,10 +24,10 @@ while True:
             continue
     array = np.frombuffer(data, dtype=np.dtype('uint8'))
     img = cv2.imdecode(array, 1)
-    flippedImg = cv2.flip(img, 1)
-    cv2.imshow("Image", flippedImg)
+    img = cv2.flip(img, 1)
+    cv2.imshow("Image", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
-        print("Asking the server to quit")
+        print("\nAsking the server to quit")
         sock.sendto("quit".encode('utf-8'), server_address)
         print("Quitting")
         break

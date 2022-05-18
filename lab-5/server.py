@@ -4,7 +4,7 @@ import argparse
 import video_grabber
 
 jpeg_quality = 50
-host = '127.0.0.1'
+host = socket.gethostname()
 port = 10080
 encoder = 'cv2'
 
