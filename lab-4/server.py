@@ -5,7 +5,7 @@ from threading import Thread
 def accept_incoming_connections():
     while True:
         client, client_address = SERVER.accept()
-        print("%s:%s has connected." % client_address)
+        print(f"{list(client_address)[0]}:{list(client_address)[1]} has connected.")
         client.send(bytes("Greetings from the cave! Now type your name and press enter!", "utf8"))
         addresses[client] = client_address
         Thread(target=handle_client, args=(client,)).start()

@@ -24,7 +24,8 @@ while True:
             continue
     array = np.frombuffer(data, dtype=np.dtype('uint8'))
     img = cv2.imdecode(array, 1)
-    cv2.imshow("Image", img)
+    flippedImg = cv2.flip(img, 1)
+    cv2.imshow("Image", flippedImg)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         print("Asking the server to quit")
         sock.sendto("quit".encode('utf-8'), server_address)
