@@ -32,6 +32,9 @@ class VideoGrabber(Thread):
             self.buffer = self.jpeg_encode_func(img)
             self.lock.release()
 
+    def get_running(self):
+        return self.running
+
     @staticmethod
     def cv2_encode_image(cv2_img, jpeg_quality):
         encode_params = [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality]
